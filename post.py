@@ -4,6 +4,7 @@
 from subprocess import check_output
 import praw
 import sys
+import time
 
 # Supply your streamable/reddit account details, as well as the subreddit to post to
 STRM_USERNAME = 
@@ -26,4 +27,5 @@ strm_link = 'https://streamable.com/' + output[28:-2]
 r = praw.Reddit(user_agent='Post video (via streamable) to Reddit, by yourusername')
 r.login(REDD_USERNAME, REDD_PASSWORD)
 
+time.sleep(3)
 r.submit(SUBREDDIT, LINK_TITLE, url=strm_link)

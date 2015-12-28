@@ -3,6 +3,7 @@
 from subprocess import check_output
 import praw
 import sys
+import time
 
 # Supply your streamable/reddit account details, as well as the GDT link and home/away team subs
 STRM_USERNAME = 
@@ -28,6 +29,7 @@ strm_link = 'https://streamable.com/' + output[28:-2]
 r = praw.Reddit(user_agent='Post video (via streamable) to Reddit, by yourusername')
 r.login(REDD_USERNAME, REDD_PASSWORD)
 
+time.sleep(3)
 submission = r.get_submission(url=GAMETHREAD)
 submission.add_comment('[STRM: ' + LINK_CAPTION + '](' + strm_link + ')')
 
